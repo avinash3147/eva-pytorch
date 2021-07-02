@@ -105,6 +105,8 @@ Estimated Total Size (MB): 53.89
 
 ### Training Logs:-
 
+```
+
  0%|          | 0/391 [00:00<?, ?it/s]
 Test set: Average loss: 0.0037, Accuracy: 41987/50000 (83.97%)
 
@@ -168,6 +170,7 @@ Loss=0.36189454793930054 Batch_id=390 Accuracy=89.84: 100%|███████
 
 Test set: Average loss: 0.0005, Accuracy: 49156/50000 (98.31%)
 
+```
 
 ### Goals Achieved:-
 * Epochs - 20 
