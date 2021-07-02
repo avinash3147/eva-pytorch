@@ -12,7 +12,6 @@
     * Apply these transforms while training:
         * RandomCrop(32, padding=4)
         * CutOut(16x16)
-    * achieve 87% accuracy, as many epochs as you want. Total Params to be less than 100k. 
 
 ## Folder structure:-
 * Experiments 
@@ -27,16 +26,6 @@
 * main.py 
   * Main file which calls the required methods sequentially just like colab notebook
 
-## Enchancements Added:-
-
-* We have not used maxpooling a any time. 
-* For the Transition block 1 only 1x1 conv s used to reduce the number of params.
-* For the Transition block 2 we have used **Dilation Convolution** to decrease the size of image and get a higher receptive field output
-* For the Transition block 3 we have used normal convolutions with stride as 2. 
-* We have used **6 Depth wise Seperable convolutions** . 
-* Use Cross Entropy for loss calculation 
-* Data Augumentations using Albumenation Library. 
-
 ## Data Augumentation:-
 
 The data augumentation techniques used are:-
@@ -48,6 +37,7 @@ The data augumentation techniques used are:-
 
 ### Model Summary:-
 
+```
 ----------------------------------------------------------------
         Layer (type)               Output Shape         Param #
 ================================================================
@@ -110,6 +100,8 @@ Forward/backward pass size (MB): 11.25
 Params size (MB): 42.63
 Estimated Total Size (MB): 53.89
 ----------------------------------------------------------------
+
+```
 
 ### Training Logs:-
 
