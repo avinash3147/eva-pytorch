@@ -47,6 +47,7 @@ The data augumentation techniques used are:-
 ## Best Model:-
 
 ### Model Summary:-
+
 ----------------------------------------------------------------
         Layer (type)               Output Shape         Param #
 ================================================================
@@ -111,44 +112,8 @@ Estimated Total Size (MB): 53.89
 ----------------------------------------------------------------
 
 ### Training Logs:-
-0%|          | 0/391 [00:00<?, ?it/s]Epoch 1:
-Loss=1.3807648420333862 Batch_id=390 Accuracy=37.83: 100%|██████████| 391/391 [01:04<00:00,  6.03it/s]
-  0%|          | 0/391 [00:00<?, ?it/s]
-Test set: Average loss: 0.0099, Accuracy: 27478/50000 (54.96%)
 
-Epoch 2:
-Loss=1.2307568788528442 Batch_id=390 Accuracy=52.55: 100%|██████████| 391/391 [01:04<00:00,  6.05it/s]
-  0%|          | 0/391 [00:00<?, ?it/s]
-Test set: Average loss: 0.0091, Accuracy: 30665/50000 (61.33%)
-
-Epoch 3:
-Loss=1.1359974145889282 Batch_id=390 Accuracy=59.25: 100%|██████████| 391/391 [01:05<00:00,  5.97it/s]
-  0%|          | 0/391 [00:00<?, ?it/s]
-Test set: Average loss: 0.0074, Accuracy: 33381/50000 (66.76%)
-
-Epoch 4:
-Loss=0.8834953308105469 Batch_id=390 Accuracy=64.96: 100%|██████████| 391/391 [01:05<00:00,  5.94it/s]
-  0%|          | 0/391 [00:00<?, ?it/s]
-Test set: Average loss: 0.0067, Accuracy: 35588/50000 (71.18%)
-
-Epoch 5:
-Loss=0.846274733543396 Batch_id=390 Accuracy=69.05: 100%|██████████| 391/391 [01:05<00:00,  5.95it/s]
-  0%|          | 0/391 [00:00<?, ?it/s]
-Test set: Average loss: 0.0050, Accuracy: 39021/50000 (78.04%)
-
-Epoch 6:
-Loss=0.7453653812408447 Batch_id=390 Accuracy=72.04: 100%|██████████| 391/391 [01:05<00:00,  5.97it/s]
-  0%|          | 0/391 [00:00<?, ?it/s]
-Test set: Average loss: 0.0059, Accuracy: 37485/50000 (74.97%)
-
-Epoch 7:
-Loss=0.4584648013114929 Batch_id=390 Accuracy=74.70: 100%|██████████| 391/391 [01:05<00:00,  5.98it/s]
-  0%|          | 0/391 [00:00<?, ?it/s]
-Test set: Average loss: 0.0041, Accuracy: 41081/50000 (82.16%)
-
-Epoch 8:
-Loss=0.6761376261711121 Batch_id=390 Accuracy=76.38: 100%|██████████| 391/391 [01:05<00:00,  5.96it/s]
-  0%|          | 0/391 [00:00<?, ?it/s]
+ 0%|          | 0/391 [00:00<?, ?it/s]
 Test set: Average loss: 0.0037, Accuracy: 41987/50000 (83.97%)
 
 Epoch 9:
@@ -210,6 +175,7 @@ Epoch 20:
 Loss=0.36189454793930054 Batch_id=390 Accuracy=89.84: 100%|██████████| 391/391 [01:05<00:00,  5.96it/s]
 
 Test set: Average loss: 0.0005, Accuracy: 49156/50000 (98.31%)
+
 
 ### Goals Achieved:-
 * Epochs - 20 
