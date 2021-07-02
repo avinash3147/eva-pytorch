@@ -1,4 +1,4 @@
-# Assignment 8
+# EVA Pytorch
 ## Problem statement:-
 1. your colab file must
     * train resnet18 for 20 epochs on the CIFAR10 dataset
@@ -12,9 +12,6 @@
     * Apply these transforms while training:
         * RandomCrop(32, padding=4)
         * CutOut(16x16)
-
-## Link to Main Repo:-
-   * https://github.com/avinash3147/eva-pytorch
 
 ## Folder structure:-
 * Experiments 
