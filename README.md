@@ -1,4 +1,4 @@
-# EVA Pytorch
+# Assignment 8
 ## Problem statement:-
 1. your colab file must
     * train resnet18 for 20 epochs on the CIFAR10 dataset
@@ -12,6 +12,9 @@
     * Apply these transforms while training:
         * RandomCrop(32, padding=4)
         * CutOut(16x16)
+
+## Link to Main Repo:-
+   * https://github.com/avinash3147/eva-pytorch
 
 ## Folder structure:-
 * Experiments 
@@ -33,7 +36,7 @@ The data augumentation techniques used are:-
 * CutOut(16x16)
 
 
-## Best Model:-
+## Model Details:-
 
 ### Model Summary:-
 
@@ -174,7 +177,7 @@ Test set: Average loss: 0.0005, Accuracy: 49156/50000 (98.31%)
 
 ### Goals Achieved:-
 * Epochs - 20 
-* Total Params - **11,173,962 (Less than 100K)**
+* Total Params - **11,173,962**
 * Best Training Accuracy - **89.84%**
 * Best Testing Accuracy - **98.31%**
 
@@ -186,13 +189,20 @@ Test set: Average loss: 0.0005, Accuracy: 49156/50000 (98.31%)
 
 ![missclassified-images](https://user-images.githubusercontent.com/50147394/124309415-f8ac7480-db6a-11eb-9f0a-6363c94aac60.png)
 
-### GradCam Outputs
+### GradCam Outputs:-
+
 * ![grad_cam_output1](https://user-images.githubusercontent.com/50147394/124309303-d0247a80-db6a-11eb-8e9f-b048edfd8e23.png)
+
 * ![grad_cam_output2](https://user-images.githubusercontent.com/50147394/124309322-d6b2f200-db6a-11eb-89b0-ea0b31294308.png)
+
 * ![grad_cam_output3](https://user-images.githubusercontent.com/50147394/124309352-e0d4f080-db6a-11eb-87c2-4da3ab5c6148.png)
 
 
 ## References:-
+
+* https://github.com/kuangliu/pytorch-cifar
+
+* https://medium.com/@stepanulyanin/implementing-grad-cam-in-pytorch-ea0937c31e82
 
 ## Contributors:-
 1. Avinash Ravi
