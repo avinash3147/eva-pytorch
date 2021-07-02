@@ -183,11 +183,18 @@ Test set: Average loss: 0.0005, Accuracy: 49156/50000 (98.31%)
 * Best Training Accuracy - **89.84%**
 * Best Testing Accuracy - **98.31%**
 
-### Accuracy of each class:-
-![image](https://user-images.githubusercontent.com/51078583/122612990-b3377400-d0a1-11eb-87af-ef8065aac510.png)
+### Accuracy and Loss Plots:-
 
-### Validation Loss Curve:-
-![image](https://user-images.githubusercontent.com/51078583/122613662-dadb0c00-d0a2-11eb-96d2-43d132733913.png)
+![accuracy_loss_plots](https://user-images.githubusercontent.com/50147394/124309169-9b182800-db6a-11eb-8f86-4943dc760bc9.png)
+
+### Misclassified Images:-
+
+![missclassified-images](https://user-images.githubusercontent.com/50147394/124309415-f8ac7480-db6a-11eb-9f0a-6363c94aac60.png)
+
+### GradCam Outputs
+* ![grad_cam_output1](https://user-images.githubusercontent.com/50147394/124309303-d0247a80-db6a-11eb-8e9f-b048edfd8e23.png)
+* ![grad_cam_output2](https://user-images.githubusercontent.com/50147394/124309322-d6b2f200-db6a-11eb-89b0-ea0b31294308.png)
+* ![grad_cam_output3](https://user-images.githubusercontent.com/50147394/124309352-e0d4f080-db6a-11eb-87c2-4da3ab5c6148.png)
 
 
 ## References:-
