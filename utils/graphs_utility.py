@@ -80,3 +80,11 @@ def imshow(img,c = "" ):
     fig = plt.figure(figsize=(10,10))
     plt.imshow(np.transpose(npimg, (1, 2, 0)),interpolation='none')
     plt.title(c)
+
+
+def two_variable_plot(x, y, x_label, y_label, title):
+    plt.plot(x, y)
+    plt.ylabel(y_label)
+    plt.xlabel(x_label)
+    plt.title(title)
+    plt.show()

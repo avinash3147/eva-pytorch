@@ -1,10 +1,13 @@
 """
 
 """
+import tqdm, copy
+
 import torchvision
 from torchvision.utils import make_grid
 import torch.cuda
 import torch.nn as nn
+import torch.optim as optim
 import train_utility, test_utility
 
 
@@ -31,9 +34,8 @@ def load_optimizer(model):
     Returns: optimizer and scheduler
 
     """
-    import torch.optim as optim
-    optimizer = optim.SGD(model.parameters(), lr=0.015, momentum=0.7)
-
+    # optimizer = optim.SGD(model.parameters(), lr=0.015, momentum=0.7)
+    optimizer = optim.SGD(model.parameters(), lr=0.01, momentum=0.9, weight_decay=0.005)
     return optimizer
 
 
@@ -57,14 +59,22 @@ def run_epochs(train_loader, test_loader, device, model):
     criterion = nn.CrossEntropyLoss()
 
     optimizer = load_optimizer(model)
-    scheduler = OneCycleLR(optimizer, max_lr=0.015, epochs=20, steps_per_epoch=len(train_loader))
+    # scheduler = OneCycleLR(optimizer, max_lr=0.015, epochs=20, steps_per_epoch=len(train_loader))
+    scheduler = OneCycleLR(optimizer, max_lr=0.012400000000000001, total_steps=None, epochs=24,
+                           steps_per_epoch=len(train_loader), pct_start=0.167, anneal_strategy='linear',
+                           cycle_momentum=False, base_momentum=0.85, max_momentum=0.95, div_factor=10.0,
+                           final_div_factor=1)
 
     train_losses = []
     test_losses = []
     train_accuracy = []
     test_accuracy = []
+    LR = []
 
-    for epoch in range(1, 21):
+    for epoch in range(1, 25):
+        print("EPOCH:", epoch, 'LR:', optimizer.param_groups[0]['lr'])
+        LR.append(optimizer.param_groups[0]['lr'])
+
         train_utility.train(
             model=model,
             device=device,
@@ -84,7 +94,7 @@ def run_epochs(train_loader, test_loader, device, model):
             test_losses=test_losses
         )
 
-    return train_accuracy, train_losses, test_accuracy, test_losses
+    return train_accuracy, train_losses, test_accuracy, test_losses, LR
 
 
 def get_wrong_predictions(model, test_loader, device):
@@ -151,4 +161,40 @@ def grad_cam(g_image_list, g_image_label, model):
 
         grid_image = make_grid(plot, nrow=5)
         imshow(grid_image, label)
+
+
+def lr_finder(model, device, train_loader):
+    max_lr = 0.02
+    min_lr = 0.001
+    epoch = 10
+    Lrtest_train_acc = []
+    LRtest_Lr = []
+
+    criterion = nn.CrossEntropyLoss()
+
+    step = (max_lr - min_lr) / epoch
+    lr = min_lr
+    for e in range(epoch):
+        testmodel = copy.deepcopy(model)
+        optimizer = optim.SGD(testmodel.parameters(), lr=lr, momentum=0.9, weight_decay=0.05)
+        lr += (max_lr - min_lr) / epoch
+        testmodel.train()
+        pbar = tqdm(train_loader)
+        correct = 0
+        processed = 0
+        for batch_idx, (data, target) in enumerate(pbar):
+            data, target = data["image"].to(device), target.to(device)
+            optimizer.zero_grad()
+            y_pred = testmodel(data)
+            loss = criterion(y_pred, target)
+            loss.backward()
+            optimizer.step()
+            pred = y_pred.argmax(dim=1, keepdim=True)  # get the index of the max log-probability
+            correct += pred.eq(target.view_as(pred)).sum().item()
+            processed += len(data)
+            pbar.set_description(
+                desc=f'epoch = {e + 1} Lr = {optimizer.param_groups[0]["lr"]}  Loss={loss.item()} Batch_id={batch_idx} Accuracy={100 * correct / processed:0.2f}')
+        Lrtest_train_acc.append(100 * correct / processed)
+        LRtest_Lr.append(optimizer.param_groups[0]['lr'])
+    return Lrtest_train_acc, LRtest_Lr
 

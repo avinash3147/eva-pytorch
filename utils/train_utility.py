@@ -26,10 +26,6 @@ def train(model, device, train_loader, optimizer, train_acc, train_loss, schedul
         # Backpropagation
         loss.backward()
 
-        # Gradient clipping
-        # if grad_clip:
-        #     nn.utils.clip_grad_value_(model.parameters(), grad_clip)
-
         optimizer.step()
         scheduler.step()
 
